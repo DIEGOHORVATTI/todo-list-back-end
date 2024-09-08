@@ -1,14 +1,11 @@
-export const HOST_API = 'http://localhost:8000'
+export const HOST_API = 'http://localhost:8001'
 
 const environment = {
-  PORT: '8000',
+  PORT: '8001',
   MONGODB_PORT: '27017',
   MONGO_DOMAIN: '127.0.0.1',
   MONGODB_DATABASE: 'azePlast',
-  JWT_SECRET: 'yqutyvxijqbiugc8976t23971g2ydw796fc5f237vucyva8yf725r3821ouqygd8632fx2v3y',
-  JWT_EXPIRATION_TIME: '10',
-  MAIL_PASSWORD: 'erfhsokepljtfszn',
-  MAIL_USERNAME: 'developers@azePlast.com.br'
+  JWT_EXPIRATION_TIME: '10'
 }
 
 const MILISECONDS_PER_SECOND = 1000
@@ -24,7 +21,6 @@ const jwtExpirationTime = DAYS * milisecondsPerDay
 
 export const env = {
   jwtExpirationTime,
-  jwtSecret: environment.JWT_SECRET,
   dbPort: environment.MONGODB_PORT,
   dbDomain: environment.MONGO_DOMAIN,
   dbDatabase: environment.MONGODB_DATABASE

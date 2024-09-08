@@ -28,7 +28,6 @@ export const TaskSchema = z.object({
     )
     .optional(),
   priority: z.string(),
-  categories: z.array(z.string()),
   description: z.string().min(1, 'Description is required'),
   dueDate: z.string().min(1, 'Due date is required')
 })
@@ -54,7 +53,6 @@ const SchemaModel = new Schema<IKanbanTask>(
     name: { type: String, required: true },
     files: { type: [fileSchema] },
     priority: { type: String, required: true },
-    categories: { type: [String], required: true },
     archived: { type: Boolean, required: true, default: false },
     description: { type: String, required: true },
     dueDate: { type: String, required: true }

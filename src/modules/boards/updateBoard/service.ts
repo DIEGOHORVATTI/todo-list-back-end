@@ -3,7 +3,7 @@ import { HTTPError } from '@/errors'
 import { IKanbanBoard, KanbanBoard, BoardSchema } from '@/models/KanbanBoard'
 
 export const updateBoardService = async (data: IKanbanBoard) => {
-  const { name, usersIds, columnIds, ordered } = BoardSchema.parse(data)
+  const { name, columnIds, ordered } = BoardSchema.parse(data)
 
   const board = await KanbanBoard.findById(data.id)
 
@@ -21,7 +21,7 @@ export const updateBoardService = async (data: IKanbanBoard) => {
     board.name = name
   }
 
-  Object.assign(board, { name, usersIds, columnIds, ordered })
+  Object.assign(board, { name, columnIds, ordered })
 
   await board.save().catch(error => {
     throw new HTTPError('Failed to update board', 500)

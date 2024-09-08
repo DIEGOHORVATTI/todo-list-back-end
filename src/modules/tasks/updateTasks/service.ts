@@ -3,7 +3,7 @@ import { HTTPError } from '@/errors'
 import { IKanbanTask, KanbanTask, TaskSchema } from '@/models/KanbanTask'
 
 export const updateTaskService = async (data: IKanbanTask & { userName: string }) => {
-  const { name, archived, priority, categories, files, description, dueDate } = TaskSchema.parse(data)
+  const { name, archived, priority, files, description, dueDate } = TaskSchema.parse(data)
 
   const task = await KanbanTask.findById(data.id)
 
@@ -16,7 +16,6 @@ export const updateTaskService = async (data: IKanbanTask & { userName: string }
     files,
     archived,
     priority,
-    categories,
     description,
     dueDate
   })
