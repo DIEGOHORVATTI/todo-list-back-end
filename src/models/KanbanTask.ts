@@ -30,15 +30,10 @@ export const TaskSchema = z.object({
   priority: z.string(),
   categories: z.array(z.string()),
   description: z.string().min(1, 'Description is required'),
-  assignee: z.array(z.object({ userId: z.string().optional() })),
-  dueDate: z.string().min(1, 'Due date is required'),
-  userId: z.string().min(1, 'Reporter is required')
+  dueDate: z.string().min(1, 'Due date is required')
 })
 
-export type IKanbanTask = Omit<DocumentSchemaZod<typeof TaskSchema>, 'taskId' | 'userId'> & {
-  history: [{ userId: Schema.Types.ObjectId; date: Date }]
-  userId: Schema.Types.ObjectId
-}
+export type IKanbanTask = Omit<DocumentSchemaZod<typeof TaskSchema>, 'taskId' | 'userId'>
 
 const fileSchema = new Schema({
   fieldname: { type: String, required: true },
@@ -58,14 +53,11 @@ const SchemaModel = new Schema<IKanbanTask>(
   {
     name: { type: String, required: true },
     files: { type: [fileSchema] },
-    history: { type: [{ userId: Schema.Types.ObjectId, date: Date }], ref: collectionsData.User.name },
     priority: { type: String, required: true },
     categories: { type: [String], required: true },
     archived: { type: Boolean, required: true, default: false },
-    assignee: { type: [{ userId: Schema.Types.ObjectId, date: Date }], ref: collectionsData.User.name },
     description: { type: String, required: true },
-    dueDate: { type: String, required: true },
-    userId: { type: Schema.Types.ObjectId, ref: collectionsData.User.name, required: true }
+    dueDate: { type: String, required: true }
   },
   {
     timestamps: true,
