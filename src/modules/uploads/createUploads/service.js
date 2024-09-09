@@ -1,5 +1,3 @@
-import { HOST_API } from '../../../config'
-
 export const createUploadsService = async ({ files }) => {
   const newfiles = files.map(file => {
     return {
@@ -7,7 +5,7 @@ export const createUploadsService = async ({ files }) => {
       name: file.filename,
       size: file.size,
       type: file.mimetype,
-      preview: `${HOST_API}/${file.path.split('src/')[1]}`
+      preview: `https://todo-list-back-end-production.up.railway.app/${file.path.split('src/')[1]}`
     }
   })
 

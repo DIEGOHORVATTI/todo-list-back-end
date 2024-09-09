@@ -1,5 +1,3 @@
-export const HOST_API = 'http://localhost:8001'
-
 const environment = {
   PORT: '8001',
   MONGODB_PORT: '27017',
