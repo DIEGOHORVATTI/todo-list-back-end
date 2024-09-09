@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose'
 import { z } from 'zod'
 
-import { azePlastDB } from '../shared/connection-db'
+import { dbConnection } from '../shared/connection-db'
 
 import { setDefaultSettingsSchema } from '../shared'
 import { collectionsData } from '../config'
@@ -26,4 +26,4 @@ const SchemaModel = new Schema(
 
 setDefaultSettingsSchema(SchemaModel)
 
-export const KanbanBoard = azePlastDB.model(collectionsData.KanbanBoard.name, SchemaModel)
+export const KanbanBoard = dbConnection.model(collectionsData.KanbanBoard.name, SchemaModel)

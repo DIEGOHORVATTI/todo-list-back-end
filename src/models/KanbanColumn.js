@@ -1,4 +1,4 @@
-import { azePlastDB } from '../shared/connection-db'
+import { dbConnection } from '../shared/connection-db'
 import { setDefaultSettingsSchema } from '../shared'
 
 import { collectionsData } from '../config'
@@ -28,4 +28,4 @@ const SchemaModel = new Schema(
 
 setDefaultSettingsSchema(SchemaModel)
 
-export const KanbanColumn = azePlastDB.model(collectionsData.KanbanColumn.name, SchemaModel)
+export const KanbanColumn = dbConnection.model(collectionsData.KanbanColumn.name, SchemaModel)

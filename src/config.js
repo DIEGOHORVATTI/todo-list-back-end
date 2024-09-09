@@ -24,11 +24,6 @@ export const env = {
   dbDatabase: environment.MONGODB_DATABASE
 }
 
-export const dbMongo = {
-  ...env,
-  dbUrl: `mongodb://${environment.MONGO_DOMAIN}:${environment.MONGODB_PORT}/${env.dbDatabase}?authSource=admin`
-}
-
 export const collectionsData = {
   KanbanTask: {
     name: 'KanbanTask',

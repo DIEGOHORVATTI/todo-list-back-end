@@ -6,7 +6,7 @@ import { setDefaultSettingsSchema } from '../shared'
 import { collectionsData } from '../config'
 
 import { z } from 'zod'
-import { azePlastDB } from '../shared/connection-db'
+import { dbConnection } from '../shared/connection-db'
 
 export const TaskSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -64,4 +64,4 @@ const SchemaModel = new Schema(
 
 setDefaultSettingsSchema(SchemaModel)
 
-export const KanbanTask = azePlastDB.model(collectionsData.KanbanTask.name, SchemaModel)
+export const KanbanTask = dbConnection.model(collectionsData.KanbanTask.name, SchemaModel)
