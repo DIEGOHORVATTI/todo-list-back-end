@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: path.resolve(__dirname, 'src/index.js'),
+        main: path.resolve(__dirname, 'app.js'),
       }
     }
   }

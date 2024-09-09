@@ -3,9 +3,9 @@ import express from 'express'
 import cors from 'cors'
 import morgan from 'morgan'
 
-import { exception, exceptionValidation, notFound } from './middlewares'
+import { exception, exceptionValidation, notFound } from './src/middlewares'
 
-import { router } from './router'
+import { router } from './src/router'
 
 import dotenv from 'dotenv'
 dotenv.config()
@@ -35,5 +35,13 @@ app.use(router)
 app.use(notFound)
 app.use(exceptionValidation)
 app.use(exception)
+
+
+const port = '8001'
+try {
+  app.listen(port, () => console.log(`Application running on port ${port}`))
+} catch (error) {
+  console.error('Erro ao conectar ao banco de dados:', error)
+}
 
 export default app
