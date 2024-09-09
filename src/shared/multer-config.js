@@ -1,5 +1,5 @@
-import { existsSync, mkdirSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { existsSync, mkdirSync } from 'fs'
+import { resolve } from 'path'
 
 import { format } from 'date-fns'
 import multer from 'multer'

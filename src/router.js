@@ -1,7 +1,7 @@
 import { Router } from 'express'
 
-import { readdirSync } from 'node:fs'
-import { join } from 'node:path'
+import { readdirSync } from 'fs'
+import { join } from 'path'
 
 export const router = Router()
 
