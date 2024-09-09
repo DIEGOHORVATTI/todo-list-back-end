@@ -1,6 +1,6 @@
 import app from './app'
 
-const port = process.env.PORT
+const port = '8001'
 
 try {
   app.listen(port, () => console.log(`Application running on port ${port}`))
