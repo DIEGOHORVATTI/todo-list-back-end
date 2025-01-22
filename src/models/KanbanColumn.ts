@@ -1,4 +1,4 @@
-import { azePlastDB } from '@/shared/connection-db'
+import { mongoConnection } from '@/shared/connection-db'
 import { setDefaultSettingsSchema } from '@/shared'
 
 import { collectionsData } from '@/config'
@@ -33,4 +33,4 @@ const SchemaModel = new Schema<IKanbanColumn>(
 
 setDefaultSettingsSchema(SchemaModel)
 
-export const KanbanColumn = azePlastDB.model<IKanbanColumn>(collectionsData.KanbanColumn.name, SchemaModel)
+export const KanbanColumn = mongoConnection.model<IKanbanColumn>(collectionsData.KanbanColumn.name, SchemaModel)

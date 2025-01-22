@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose'
 
-import { azePlastDB } from '@/shared/connection-db'
+import { mongoConnection } from '@/shared/connection-db'
 import { setDefaultSettingsSchema } from '@/shared'
 
 import { collectionsData } from '@/config'
@@ -65,4 +65,4 @@ const SchemaModel = new Schema<IKanbanTask>(
 
 setDefaultSettingsSchema(SchemaModel)
 
-export const KanbanTask = azePlastDB.model<IKanbanTask>(collectionsData.KanbanTask.name, SchemaModel)
+export const KanbanTask = mongoConnection.model<IKanbanTask>(collectionsData.KanbanTask.name, SchemaModel)
