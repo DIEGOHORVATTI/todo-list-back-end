@@ -32,7 +32,7 @@ export const TaskSchema = z.object({
   dueDate: z.string().min(1, 'Due date is required')
 })
 
-export type IKanbanTask = Omit<DocumentSchemaZod<typeof TaskSchema>, 'taskId' | 'userId'>
+export type IKanbanTask = Omit<DocumentSchemaZod<typeof TaskSchema>, 'taskId'>
 
 const fileSchema = new Schema({
   fieldname: { type: String, required: true },

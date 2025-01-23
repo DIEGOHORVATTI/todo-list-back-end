@@ -1,6 +1,6 @@
 export const HOST_API = 'http://localhost:8001'
 
-export const mongoUrl = 'mongodb://root:password@127.0.0.1:27017/kanban'
+export const mongoUrl = 'mongodb://root:password@127.0.0.1:27017/admin'
 
 export const collectionsData = {
   KanbanTask: {
